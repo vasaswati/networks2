@@ -54,6 +54,15 @@ sudo apt-get install git
 Then, Go to https://github.com/join?source=header-home
 and Sign up for creating your GitHub account online (It's free, don't worry !).
 
+Again, in the terminal, type the following commands -
+
+//"YOUR NAME" is the username you created during sign up, and "YOUR EMAIL ADDRESS" is the email address
+
+git config --global user.name "YOUR NAME"
+
+git config --global user.email "YOUR EMAIL ADDRESS"
+
+
 
 
 
