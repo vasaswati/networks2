@@ -62,6 +62,36 @@ git config --global user.name "YOUR NAME"
 
 git config --global user.email "YOUR EMAIL ADDRESS"
 
+# Instructions to fork an existing repo on GitHub
+
+Go to https://github.com/jugg3rn4u7/networks2 
+
+On the top right corner, you'll find a 'Fork' button. Click it !
+
+# Instructions to clone your repo
+
+Once an existing repo is forked onto your account, you need to clone it to your local repository (local environment, your computer !)
+
+Type the following command in your Terminal -
+
+git clone https://github.com/YOUR-USERNAME/networks2
+
+# Instructions to check remote configurations in GitHub
+
+Type the following command in your Terminal -
+
+git remote -v
+
+# Syncing your local with your UPSTREAM (I'll explain to you what's UPSTREAM :). But for now, just follow the instructions !)
+
+git remote add upstream https://github.com/YOUR-USERNAME/networks2.git
+
+//Check your remote configurations again - (What do you see ?? :O :D)
+
+git remote -v
+
+
+
 
 
 
