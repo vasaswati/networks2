@@ -90,9 +90,19 @@ git remote add upstream https://github.com/YOUR-USERNAME/networks2.git
 
 git remote -v
 
+# Branching (I'll explain !)
 
+https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/
 
+# Pull Requests (I'll explain !)
 
+https://help.github.com/articles/creating-a-pull-request/
+
+# Git Documentation
+
+https://git-scm.com/doc
+
+There are a lot of details in git-scm about github commands. But its better to learn on the fly ! Reading the entire document will take a loooooooooooooooootttt of time. Better to learn by doing than reading first !  
 
 
 
