@@ -41,4 +41,22 @@ alias python=python3
 
 python -V 
 
+# Instructions to install git on ubuntu 
+
+https://help.github.com/articles/set-up-git/#platform-linux
+
+Basically, what the above link to set-up git, says is ->
+
+You can install git in ubuntu using following commands -
+
+sudo apt-get install git
+
+Then, Go to https://github.com/join?source=header-home
+and Sign up for creating your GitHub account online (It's free, don't worry !).
+
+
+
+
+
+
 
