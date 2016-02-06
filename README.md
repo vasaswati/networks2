@@ -38,6 +38,7 @@ sudo apt-get install idle-python3.4
 alias python=python3 
 
 // This should show the version of python just installed
+
 python -V 
 
 
