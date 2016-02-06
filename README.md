@@ -34,3 +34,9 @@ Click search, type terminal and click on 'Terminal'. Type the following commands
 sudo apt-get install python3 
 
 sudo apt-get install idle-python3.4
+
+alias python=python3 
+
+python -V /* This should show the version of python just installed */
+
+
