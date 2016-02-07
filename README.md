@@ -78,6 +78,8 @@ git clone https://github.com/YOUR-USERNAME/networks2
 
 # Instructions to check remote configurations in GitHub
 
+cd networks/
+
 Type the following command in your Terminal -
 
 git remote -v
