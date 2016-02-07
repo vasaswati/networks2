@@ -138,7 +138,7 @@ git branch (To list all branches)
 
 git branch branch-name (To create a branch)
 
-git branch -d branch-name (To delete a branch)
+git branch -d branch-name (To delete a branch) [Don't use -D , capital D (or) -f . These are force deletes.]
 
 git checkout -b branch-name (To switch / checkout a particular branch)
 
