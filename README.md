@@ -98,6 +98,18 @@ https://help.github.com/articles/creating-and-deleting-branches-within-your-repo
 
 https://help.github.com/articles/creating-a-pull-request/
 
+# Aliases (Shortcuts !)
+
+You don't always have to type the whole command. You can create shortcuts or aliases !
+
+git config --global alias.co checkout
+
+git config --global alias.ci commit
+
+git config --global alias.st status
+
+git config --global alias.br branch
+
 # Git Documentation
 
 https://git-scm.com/doc
