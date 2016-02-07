@@ -94,6 +94,18 @@ git remote -v
 
 https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/
 
+To create a local branch from master, type the following command -
+
+git branch NEW-BRANCH-NAME
+
+To create a remote branch from master, type the following command -
+
+git push <remote-name> <local-branch-name>:<remote-branch-name>
+
+To checkout a local branch, type the following command -
+
+git checkout BRANCH-NAME
+
 # Pull Requests (I'll explain !)
 
 https://help.github.com/articles/creating-a-pull-request/
