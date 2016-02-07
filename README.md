@@ -100,7 +100,7 @@ git branch NEW-BRANCH-NAME
 
 To create a remote branch from master, type the following command -
 
-git push <remote-name> <local-branch-name>:<remote-branch-name>
+git push remote-name local-branch-name:remote-branch-name
 
 To checkout a local branch, type the following command -
 
