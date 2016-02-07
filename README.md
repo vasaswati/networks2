@@ -94,6 +94,10 @@ git remote -v
 
 https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/
 
+To list all the existing branches you have, type the following command -
+
+git branch
+
 To create a local branch from master, type the following command -
 
 git branch NEW-BRANCH-NAME
@@ -127,6 +131,37 @@ git config --global alias.br branch
 https://git-scm.com/doc
 
 There are a lot of details in git-scm about github commands. But its better to learn on the fly ! Reading the entire document will take a loooooooooooooooootttt of time. Better to learn by doing than reading first !  
+
+# List of commands we'll use mostly -
+
+git branch (To list all branches)
+
+git branch branch-name (To create a branch)
+
+git branch -d branch-name (To delete a branch)
+
+git checkout -b branch-name (To switch / checkout a particular branch)
+
+git add file-name (or) git add * (To add file to staging repo. It's a bad strategy to use a wildcard *) 
+
+git delete file-name (or) git delete * (Remove file / all files from staging)
+
+git commit file-name (or) git commit -a (To commit file to local repo from staging repo. Again, a bad strategy to use 'all' attribute)
+
+git pull -u (or) git pull upstream (To take freshly merged code from main repo)
+
+git push -o (or) git push origin (To push code to YOUR origin)
+
+git remote -V (To view all remote references / branches)
+
+git push remote-name local-branch-name:remote-branch-name (To push code from ACROSS a branch. Ex - from local master br to remote dev br. Mostly used when you fuck up by coding in the wrong branch)
+
+
+
+
+
+
+
 
 
 
