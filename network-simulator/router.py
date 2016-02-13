@@ -10,6 +10,6 @@ piece_size = 512
 ifile = open(in_file,'rb')
 data = ifile.read(piece_size)
 while data:
-    print data
+    print(data.decode("utf-8"))
     data = ifile.read(piece_size)
 ifile.close()
