@@ -9,10 +9,10 @@ from threading import Thread
 script, in_file1, in_file2, in_file3 = argv
 
 # Packet Size (in bytes)
-packet_size = 10
+packet_size = 50
 
 # Define a Queue
-q = queue.Queue()
+queueList = [ queue.Queue() for i in range(3) ]
 
 # Define delay between each packet
 delay1 = 1
@@ -20,14 +20,14 @@ delay2 = 3
 delay3 = 2
 
 class RouterThread (Thread):
-    def __init__(self, threadID, name, in_file, delay):
+    def __init__(self, threadID, name, in_file, delay, queue):
         "Init code for Thread class"
         Thread.__init__(self)
         self.threadID = threadID
         self.name = name
         self.in_file = in_file
         self.delay = delay
-        self.counter = 0
+        self.queue = queue
         return
 
     def run(self):
@@ -38,14 +38,14 @@ class RouterThread (Thread):
         #threadLock.acquire()
 
         # Fetch data from data link
-        data_link( self.name, self.delay, self.in_file )
+        data_link( self.name, self.delay, self.in_file, self.queue )
         
         # Free lock to release next thread
         #threadLock.release()
         return
 
 # Define a function for the thread (Fetch from data link)
-def data_link( threadName, delay, in_file):
+def data_link( threadName, delay, in_file, queue):
     "Fetch data from a particular data link"
 
     # Open and read file
@@ -57,7 +57,7 @@ def data_link( threadName, delay, in_file):
     while data:
 
         # Push bytes into Queue
-        q.put(data)
+        queue.put(data)
 
         # Sleep the thread
         time.sleep(delay)
@@ -75,9 +75,9 @@ threadLock = threading.Lock()
 threads = []
 
 # Create new threads
-thread1 = RouterThread(1, "Data Link 1", in_file1, delay1)
-thread2 = RouterThread(2, "Data Link 2", in_file2, delay2)
-thread3 = RouterThread(3, "Data Link 3", in_file2, delay3)
+thread1 = RouterThread(1, "Data Link 1", in_file1, delay1, queueList[0])
+thread2 = RouterThread(2, "Data Link 2", in_file2, delay2, queueList[1])
+thread3 = RouterThread(3, "Data Link 3", in_file3, delay3, queueList[2])
 
 # Start new Threads
 thread1.start()
@@ -95,5 +95,7 @@ for t in threads:
 print("Exiting Main Thread")
 
 # Print output - Get bytes from Queue
-while not q.empty():
-    print(q.get().decode("utf-8"))
+print("Printing items from each queue -");
+for queue in queueList:
+    while not queue.empty():
+        print(queue.get().decode("utf-8"))
