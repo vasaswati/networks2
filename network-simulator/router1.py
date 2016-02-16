@@ -94,6 +94,9 @@ for t in threads:
     t.join()
 print("Exiting Main Thread")
 
+class SwitchFabric ():
+    
+
 # Print output - Get bytes from Queue
 print("Printing items from each queue -");
 for queue in queueList:
