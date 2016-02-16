@@ -38,14 +38,14 @@ class RouterThread (Thread):
         #threadLock.acquire()
 
         # Fetch data from data link
-        data_link( self.name, self.delay, self.in_file, self.queue )
+        data_link( self, self.name, self.delay, self.in_file, self.queue )
         
         # Free lock to release next thread
         #threadLock.release()
         return
 
 # Define a function for the thread (Fetch from data link)
-def data_link( threadName, delay, in_file, queue):
+def data_link( self, threadName, delay, in_file, queue):
     "Fetch data from a particular data link"
 
     # Open and read file
@@ -71,31 +71,52 @@ def data_link( threadName, delay, in_file, queue):
     ifile.close()
     return
 
-threadLock = threading.Lock()
-threads = []
 
-# Create new threads
-thread1 = RouterThread(1, "Data Link 1", in_file1, delay1, queueList[0])
-thread2 = RouterThread(2, "Data Link 2", in_file2, delay2, queueList[1])
-thread3 = RouterThread(3, "Data Link 3", in_file3, delay3, queueList[2])
+class ReceiverModule:
+    def __init__(self):
+        "Init method for the class"
+        self.threadLock = threading.Lock()
+        self.threads = []
 
-# Start new Threads
-thread1.start()
-thread2.start()
-thread3.start()
+    def start(self):
+        "Start module to start reading files"
+        # Create new threads
+        thread1 = RouterThread(1, "Data Link 1", in_file1, delay1, queueList[0])
+        thread2 = RouterThread(2, "Data Link 2", in_file2, delay2, queueList[1])
+        thread3 = RouterThread(3, "Data Link 3", in_file3, delay3, queueList[2])
 
-# Add threads to thread list
-threads.append(thread1)
-threads.append(thread2)
-threads.append(thread3)
+        # Start new Threads
+        thread1.start()
+        thread2.start()
+        thread3.start()
 
-# Wait for all threads to complete
-for t in threads:
-    t.join()
-print("Exiting Main Thread")
+        # Add threads to thread list
+        self.threads.append(thread1)
+        self.threads.append(thread2)
+        self.threads.append(thread3)
 
-# Print output - Get bytes from Queue
-print("Printing items from each queue -");
-for queue in queueList:
-    while not queue.empty():
-        print(queue.get().decode("utf-8"))
+        # Wait for all threads to complete
+        for t in self.threads:
+            t.join()
+        print("Exiting Main Thread")
+
+        # Print output - Get bytes from Queue
+        print("Printing items from each queue -");
+        for queue in queueList:
+            while not queue.empty():
+                print(queue.get().decode("utf-8"))
+
+
+class Router:
+    def __init__(self):
+        "Initialization method for Router"
+        # Currently do nothing
+
+    def start(self):
+        "Start method for the router"
+        receiverModule = ReceiverModule()
+        receiverModule.start()
+
+        
+router = Router()
+router.start()
